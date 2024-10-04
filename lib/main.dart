@@ -71,7 +71,6 @@ class _VoiceAssistantState extends State<VoiceAssistant> {
           _stopListening();
           break;
         case 'updateOverlayContent':
-          // Handle overlay updates if needed
           break;
         case 'multiple_contacts':
           await _handleMultipleContacts(call.arguments);
@@ -114,7 +113,7 @@ class _VoiceAssistantState extends State<VoiceAssistant> {
         switch (data['action']) {
           case 'send_message':
             String phoneNumber = data['phone_number'];
-            if (phoneNumber != null && phoneNumber.isNotEmpty) {
+            if (phoneNumber.isNotEmpty) {
               await _sendMessage(
                   data['recipient'], data['message'], phoneNumber);
               await _speak('Sending your message to ${data['recipient']}.');
